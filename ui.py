@@ -1,5 +1,6 @@
 import os
 import sys
+from core.reporter import sync_and_generate_report
 
 BOLD = "\033[1m"
 RESET = "\033[0m"
@@ -36,6 +37,11 @@ def main_menu():
         print("[+] ZAP Engine Version: 2.17.0 (API Daemon Active)")
     elif choice == "2":
         print("[+] Executing automated scan, verification, and PDF report generation...")
+        try:
+            sync_and_generate_report()
+            print("[+] Workflow completed successfully. Report generated: saint_executive_report.pdf")
+        except Exception as e:
+            print(f"[-] Error during workflow execution: {str(e)}")
     else:
         print("[*] Exiting SAINT Toolkit.")
 
