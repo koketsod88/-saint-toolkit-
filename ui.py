@@ -28,7 +28,8 @@ def print_metasploit_banner():
 {RED}%##{CYAN}     ╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝   ╚═╝                               {RED}##%{RESET}
 {RED}%##############################################################################%{RED}
 {RED}%##{YELLOW}         [Vulnerability Assessment & Penetration Testing Toolkit]     {RED}##%{RESET}
-{RED}%##{GREEN}         [Powered by OWASP ZAP, Nmap, Nikto & ReportLab Engine]       {RED}##%{RESET}
+{RED}%##{GREEN}         [Powered by OWASP ZAP, Nmap, Nikto & ReportLab Engine]   ##
+%%##                  Developed & Compiled by Donald Koketso                    ##%       {RED}##%{RESET}
 {RED}%##############################################################################%{RESET}
 """)
 

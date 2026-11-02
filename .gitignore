@@ -1,15 +1,7 @@
-# Generated Reports & Artifacts
 *.pdf
 output/
 reports/
-
-# Python Cache & Environment
-__pycache__/
-*.pyc
-.env
-.DS_Store
-
-# Scan Data / Logs
+scans/
 *.json
 *.log
-targets.txt
+.ZAP/
