@@ -1,20 +1,25 @@
-FROM zaproxy/zap-stable:latest
-USER root
+FROM kalilinux/kali-rolling
 
-RUN apt-get update && apt-get install -y \
-    nmap \
-    perl \
-    libnet-ssleay-perl \
-    git \
+# Install system security tools and Perl dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 \
     python3-pip \
+    nmap \
+    nikto \
+    libxml-writer-perl \
+    curl \
+    git \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/sullo/nikto /opt/nikto && \
-    ln -s /opt/nikto/program/nikto.pl /usr/local/bin/nikto
-
 WORKDIR /app
+
+# Install Python requirements
 COPY requirements.txt .
 RUN pip3 install --no-cache-dir --break-system-packages -r requirements.txt
-COPY . .
-RUN chmod +x entrypoint.sh
-ENTRYPOINT ["./entrypoint.sh"]
+
+# Copy toolkit code
+COPY . /app
+
+ENV PYTHONPATH=/app
+
+ENTRYPOINT ["python3", "ui.py"]
