@@ -1,4 +1,5 @@
 import readline
+import readline
 import os
 import sys
 from core.reporter import sync_and_generate_report
