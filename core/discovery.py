@@ -69,3 +69,7 @@ class AdvancedAssetDiscovery:
                     })
             except requests.RequestException:
                 continue
+
+def discover_hidden_assets(target_url):
+    scanner = AdvancedAssetDiscovery(target_url)
+    return scanner.run_full_recon()
